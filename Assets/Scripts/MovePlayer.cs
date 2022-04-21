@@ -8,12 +8,10 @@ public class MovePlayer : MonoBehaviour
     private float moveSpeed;
     private Rigidbody2D rb;
     private Vector3 velocity = Vector3.zero;
-    private Animator animator;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -28,20 +26,10 @@ public class MovePlayer : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
-            animator.SetBool("IsPressed", true);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
-            animator.SetBool("IsPressed", true);
-        }
-        else if (Input.GetKey(KeyCode.UpArrow))
-            animator.SetBool("IsPressed", true);
-        else if (Input.GetKey(KeyCode.DownArrow))
-            animator.SetBool("IsPressed", true);
-        else
-        {
-            animator.SetBool("IsPressed", false);
         }
     }
 
